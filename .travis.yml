@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t igazaloglu/docker -f Dockerfile.dev .
+
+script:
+  - docker run igazaloglu/docker npm run test -- --coverage
+  
